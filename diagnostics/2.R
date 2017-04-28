@@ -1,4 +1,5 @@
-library(readxl)
+library(ProjectTemplate)
+load.project()
 
 workbook.name <- "ExportEnPHC_26042017_221404.xlsx"
 filename <- "data/ExportEnPHC_26042017_221404.xlsx"
