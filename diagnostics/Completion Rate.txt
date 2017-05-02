@@ -1,8 +1,10 @@
 Completion Count
 
- No Yes 
- 14 974 
+  No  Yes 
+  12 1980 
+
+
 Completion Rate
 
   No  Yes 
- 1.4 98.6 
+ 0.6 99.4 

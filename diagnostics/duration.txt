@@ -1,0 +1,57 @@
+                                    Short duration
+Data Entry Personnel                 FALSE  Sum
+  Adlan                                 33   33
+  Afiq Firdaus                          18   18
+  Aishah                                61   61
+  Aisyah                                42   42
+  Aizat                                 38   38
+  Aminiril anisah                       60   60
+  Amira                                 42   42
+  Ang SH                                10   10
+  Annas                                 28   28
+  Aziani                                 3    3
+  Danial                                22   22
+  delina                                 2    2
+  Delina                                29   29
+  Dr Faeiz                               1    1
+  Dr Faeiz Syezri Adzmin bin Jaaffar    17   17
+  Dr Masliyana                          21   21
+  Dr Richard                            31   31
+  Eliza                                 24   24
+  Fadzli                                14   14
+  Faeiz                                 11   11
+  Geetha Krishnan                       10   10
+  Hadi                                  43   43
+  Helmi                                 39   39
+  Hooi Fan                              50   50
+  Hoong Ping                            56   56
+  Hui Che                               14   14
+  Hui Yi                                21   21
+  Izzat                                 29   29
+  Izzati                                14   14
+  Jacelyn                              143  143
+  Jennifer Kaur                          6    6
+  Jia yi                               108  108
+  Jocelyn                               73   73
+  Mardhiah                              66   66
+  Michelle                              53   53
+  Munirah                               32   32
+  Musfirah                              20   20
+  Nabilah Iffah                         34   34
+  Natrah                                31   31
+  Noor Amalina                          33   33
+  Noor hidayah                          21   21
+  Nurjannah                             65   65
+  Nursyuhaida                           36   36
+  Philip                                10   10
+  Pui Yee                               84   84
+  Siti Aminah                           16   16
+  Sree Durga                            57   57
+  Suhayl                                20   20
+  Syahirah                              19   19
+  Tan khai shin                         52   52
+  Thivashini                            54   54
+  Yhyviyaa                              27   27
+  Yi Shin                               93   93
+  Yvonne                                44   44
+  Sum                                 1980 1980

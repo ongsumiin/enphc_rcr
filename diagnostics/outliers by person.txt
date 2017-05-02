@@ -1,0 +1,57 @@
+                                    Outlier Case
+Data Entry Personnel                 FALSE TRUE  Sum
+  Adlan                                 33    0   33
+  Afiq Firdaus                          18    0   18
+  Aishah                                61    0   61
+  Aisyah                                41    1   42
+  Aizat                                 37    1   38
+  Aminiril anisah                       60    0   60
+  Amira                                 42    0   42
+  Ang SH                                10    0   10
+  Annas                                 27    1   28
+  Aziani                                 3    0    3
+  Danial                                22    0   22
+  delina                                 2    0    2
+  Delina                                28    1   29
+  Dr Faeiz                               1    0    1
+  Dr Faeiz Syezri Adzmin bin Jaaffar    16    1   17
+  Dr Masliyana                          21    0   21
+  Dr Richard                            31    0   31
+  Eliza                                 24    0   24
+  Fadzli                                14    0   14
+  Faeiz                                 11    0   11
+  Geetha Krishnan                       10    0   10
+  Hadi                                  43    0   43
+  Helmi                                 38    1   39
+  Hooi Fan                              49    1   50
+  Hoong Ping                            54    2   56
+  Hui Che                               14    0   14
+  Hui Yi                                20    1   21
+  Izzat                                 29    0   29
+  Izzati                                14    0   14
+  Jacelyn                              141    2  143
+  Jennifer Kaur                          6    0    6
+  Jia yi                               107    1  108
+  Jocelyn                               73    0   73
+  Mardhiah                              66    0   66
+  Michelle                              53    0   53
+  Munirah                               31    1   32
+  Musfirah                              20    0   20
+  Nabilah Iffah                         34    0   34
+  Natrah                                31    0   31
+  Noor Amalina                          33    0   33
+  Noor hidayah                          21    0   21
+  Nurjannah                             65    0   65
+  Nursyuhaida                           36    0   36
+  Philip                                 8    2   10
+  Pui Yee                               83    1   84
+  Siti Aminah                           16    0   16
+  Sree Durga                            55    2   57
+  Suhayl                                20    0   20
+  Syahirah                              19    0   19
+  Tan khai shin                         52    0   52
+  Thivashini                            54    0   54
+  Yhyviyaa                              27    0   27
+  Yi Shin                               93    0   93
+  Yvonne                                44    0   44
+  Sum                                 1961   19 1980

@@ -1,8 +1,8 @@
 library(ProjectTemplate)
 load.project()
 
-workbook.name <- "ExportEnPHC_26042017_221404.xlsx"
-filename <- "data/ExportEnPHC_26042017_221404.xlsx"
+workbook.name <- list.files("data/", pattern = "[xlsx]")
+filename <- list.files("data/", pattern = "[xlsx]", full.names = TRUE)
 sheets <- excel_sheets(filename)
 
 for (sheet.name in sheets) {
@@ -17,27 +17,28 @@ for (sheet.name in sheets) {
              })
 }
 
+variables <- c('Syn_ID','VisitDate', 'Site_Name', 'PtAge','PtWeightValue','PtHeightValue',
+               'PtBMIValue','PtWaistValue','PtWaistUnit','SmokingStatus',
+               'RiskStratification','Morbidity_Type1Db','Morbidity_Type2Db',
+               'Morbidity_HPT','Morbidity_HLD','Lab_HbA1cResult','Lab_SBPMean',
+               'Lab_DBPMean','Lab_RP_Crn','Lab_LP_TotalCholAnnual',
+               'Lab_LP_TotalChol','Lab_LP_TCholResult','Lab_LP_TCholUnit',
+               'MoriskyMedAdh','DataCompleted','DateCompleted','CreatedDate',
+               'CreatedBy','UpdatedDate','UpdatedBy')
 
-DEF2 <- DEF[c('Syn_ID','VisitDate','PtAge','PtWeightValue','PtHeightValue',
-              'PtBMIValue','PtWaistValue','PtWaistUnit','SmokingStatus',
-              'RiskStratification','Morbidity_Type1Db','Morbidity_Type2Db',
-              'Morbidity_HPT','Morbidity_HLD','Lab_HbA1cResult','Lab_SBPMean',
-              'Lab_DBPMean','Lab_RP_Crn','Lab_LP_TotalCholAnnual',
-              'Lab_LP_TotalChol','Lab_LP_TCholResult','Lab_LP_TCholUnit',
-              'MoriskyMedAdh','DataCompleted','DateCompleted','CreatedDate',
-              'CreatedBy','UpdatedDate','UpdatedBy')]
+DEF2 <- DEF[variables]
 
 all.miss <- apply(DEF2, 1, function(x) all(is.na(x)))
 DEF2 <- subset(DEF2, !all.miss)
 
-#completion rate
+######completion rate######
 completed <- capture.output(table(DEF2$DataCompleted), split = TRUE)
 completed.prop <- capture.output(round(prop.table(table(DEF2$DataCompleted))*100, 
                                        1), split = TRUE)
-cat("Completion Count", completed, "Completion Rate", 
-    completed.prop, file = "doc/Completion Rate.txt", sep = "\n")
+cat("Completion Count", completed, "\n", "Completion Rate", 
+    completed.prop, file = "diagnostics/Completion Rate.txt", sep = "\n")
 
-#Data entry by DEP
+######Data entry by DEP######
 #aggregate complete cases by data entry person
 creator.y <- aggregate(DataCompleted~CreatedBy, 
                      data = DEF2, 
@@ -66,21 +67,82 @@ creator[2:3] <- apply(creator[2:3], 2, function(x) as.numeric(x))
 creator$Total <- creator$DataCompleted + creator$DataIncomplete
 #sort by total ascending order
 creator <- creator[order(creator$Total), ]
-#export results to excel in doc folder
-write.xlsx(creator, file = "doc/DEF-Data Entry Performance.xlsx", 
+#export results to excel in diagnostics folder
+write.xlsx(creator, file = "diagnostics/DEF-Data Entry Performance.xlsx", 
            sheetName = as.character(Sys.Date() - 1), 
            append = TRUE, row.names = FALSE)
 
-#subset complete cases only
-DEF3 <- DEF2[DEF2$DataCompleted == "Yes", ]
-summary(DEF3)
 
-#continuous variables outliers
-DEF4 <- DEF3[c('Syn_ID', 'CreatedBy', 'PtAge','PtWeightValue','PtHeightValue',
-               'Lab_HbA1cResult', 'Lab_SBPMean','Lab_DBPMean')]
-DEF4$mahal <- mahalanobis(DEF4[3:ncol(DEF4)], 
-                          colMeans(DEF4[3:ncol(DEF4)]), 
-                          cov(DEF4[3:ncol(DEF4)]))
-DEF4$out <- DEF4$mahal > qchisq(0.999, df = ncol(DEF4[3:ncol(DEF4)])-1)
-table(DEF4$CreatedBy, DEF4$out)
+#######subset complete cases only######
+DEF3 <- DEF[DEF$DataCompleted == "Yes", ]
+
+######number of completed DM cases by clinics######
+capture.output(addmargins(table(DEF3$Site_Name, DEF3$Morbidity_Type2Db, 
+                                dnn = c(" ", "Diabetes")), 2), 
+               file = "diagnostics/DEF by clinics.txt")
+
+######number of completed HPT cases by clinics######
+capture.output(cat("\n"), addmargins(table(DEF3$Site_Name, DEF3$Morbidity_HPT, 
+                                dnn = c(" ", "Hypertension")), 2), 
+               file = "diagnostics/DEF by clinics.txt", append = TRUE)
+
+######Completion duration######
+#time to complete in min
+DEF3$duration <- DEF3a$DateCompleted - DEF3$CreatedDate
+#duration that is 3 std score below mean
+DEF3$duration.low <- scale(DEF3$duration) < -3
+#export short duration cases if there are cases
+DEF3a <- subset(DEF3, duration.low == TRUE, select = variables)
+if(nrow(DEF3a) > 0) {
+    write.xlsx(data.frame(DEF3a), 
+               file = "diagnostics/DEF-Short duration.xlsx", 
+               sheetName = as.character(Sys.Date() - 1), 
+               append = TRUE, row.names = FALSE)
+}else{
+    NULL
+}
+
+#tabulate cases with short duration by data entry personnel 
+capture.output(addmargins(table(DEF3$CreatedBy, DEF3$duration.low,
+                                dnn = c("Data Entry Personnel", 
+                                        "Short duration"))),
+               file = "diagnostics/duration.txt")
+
+
+######continuous variables outliers######
+#select continuous variables to evaluate
+DEF4 <- DEF3[c('Syn_ID', 'CreatedBy', 'Site_Name', 'Morbidity_Type2Db', 
+               'Morbidity_HPT', 'PtAge','PtWeightValue',
+               'PtHeightValue', 'Lab_HbA1cResult', 'Lab_SBPMean','Lab_DBPMean')]
+#calculate mahalanobis score
+DEF4$mahal <- mahalanobis(DEF4[(ncol(DEF4)-5):ncol(DEF4)], 
+                          colMeans(DEF4[(ncol(DEF4)-5):ncol(DEF4)]), 
+                          cov(DEF4[(ncol(DEF4)-5):ncol(DEF4)]))
+#compare calculated score with threshold set at 0.1% of chisq distribution
+DEF4$out <- DEF4$mahal > qchisq(0.999, df = ncol(DEF4[(ncol(DEF4)-6):ncol(DEF4)])-1)
+
+#tabulation of outlier cases by person
+capture.output(addmargins(table(DEF4$CreatedBy, DEF4$out, 
+                                dnn = c("Data Entry Personnel", "Outlier Case"))), 
+               file = "diagnostics/outliers by person.txt")
+
+#check age limit for cases
+DEF4$agelimit <- DEF4$PtAge < 30
+
+#export results to diagnostics folder
+write.xlsx(data.frame(DEF4), file = "diagnostics/DEF-Outliers.xlsx", 
+           sheetName = as.character(Sys.Date() - 1), 
+           append = TRUE, row.names = FALSE)
+
+
+
+
+
+
+
+
+
+
+
+
 
