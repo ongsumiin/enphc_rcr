@@ -17,6 +17,24 @@ for (sheet.name in sheets) {
              })
 }
 
+######Function to export excel with sheet overwrite feature######
+w.excel <- function(object, file) {
+    match <- sum(grepl(as.character(Sys.Date() - 1), 
+                       excel_sheets(file)))
+    if(match > 0) {
+        wb <- loadWorkbook(file)
+        removeSheet(wb, sheetName = as.character(Sys.Date() - 1))
+        newsheet <- createSheet(wb, sheetName = as.character(Sys.Date() - 1))
+        addDataFrame(object, newsheet, row.names = FALSE)
+        saveWorkbook(wb, file)
+    } else {
+        write.xlsx(object, file, 
+                   sheetName = as.character(Sys.Date() - 1), 
+                   append = TRUE, row.names = FALSE)
+    }
+}
+
+##Selected variables of interest##
 variables <- c('Syn_ID','VisitDate', 'Site_Name', 'PtAge','PtWeightValue','PtHeightValue',
                'PtBMIValue','PtWaistValue','PtWaistUnit','SmokingStatus',
                'RiskStratification','Morbidity_Type1Db','Morbidity_Type2Db',
@@ -28,6 +46,7 @@ variables <- c('Syn_ID','VisitDate', 'Site_Name', 'PtAge','PtWeightValue','PtHei
 
 DEF2 <- DEF[variables]
 
+##remove entry with all missing
 all.miss <- apply(DEF2, 1, function(x) all(is.na(x)))
 DEF2 <- subset(DEF2, !all.miss)
 
@@ -68,36 +87,48 @@ creator$Total <- creator$DataCompleted + creator$DataIncomplete
 #sort by total ascending order
 creator <- creator[order(creator$Total), ]
 #export results to excel in diagnostics folder
-write.xlsx(creator, file = "diagnostics/DEF-Data Entry Performance.xlsx", 
-           sheetName = as.character(Sys.Date() - 1), 
-           append = TRUE, row.names = FALSE)
+w.excel(creator, file = "diagnostics/DEF-Data Entry Performance.xlsx")
 
 
 #######subset complete cases only######
 DEF3 <- DEF[DEF$DataCompleted == "Yes", ]
+DEF3$month <- factor(format.Date(DEF3$VisitDate, "%b"), 
+                     levels = c("Apr", "Mar", "Feb", "Jan", "Dec", "Nov"))
 
 ######number of completed DM cases by clinics######
 capture.output(addmargins(table(DEF3$Site_Name, DEF3$Morbidity_Type2Db, 
-                                dnn = c(" ", "Diabetes")), 2), 
-               file = "diagnostics/DEF by clinics.txt")
+                                dnn = c(" ", "Diabetes"))), 
+               file = "diagnostics/DEF by clinics-DM.txt")
+
+capture.output(cat("\n", "By Month", "\n"), 
+               addmargins(table(DEF3$Site_Name[DEF3$Morbidity_Type2Db == "Yes"], 
+                                DEF3$month[DEF3$Morbidity_Type2Db == "Yes"], 
+                                dnn = c(" ", "Diabetes"))), 
+               file = "diagnostics/DEF by clinics-DM.txt",
+               append = TRUE)
 
 ######number of completed HPT cases by clinics######
-capture.output(cat("\n"), addmargins(table(DEF3$Site_Name, DEF3$Morbidity_HPT, 
-                                dnn = c(" ", "Hypertension")), 2), 
-               file = "diagnostics/DEF by clinics.txt", append = TRUE)
+capture.output(addmargins(table(DEF3$Site_Name, DEF3$Morbidity_HPT, 
+                                dnn = c(" ", "Hypertension"))), 
+               file = "diagnostics/DEF by clinics-HPT.txt")
+
+capture.output(cat("\n", "By Month", "\n"), 
+               addmargins(table(DEF3$Site_Name[DEF3$Morbidity_HPT == "Yes"], 
+                                DEF3$month[DEF3$Morbidity_HPT == "Yes"], 
+                                dnn = c(" ", "Hypertension"))), 
+               file = "diagnostics/DEF by clinics-HPT.txt",
+               append = TRUE)
 
 ######Completion duration######
 #time to complete in min
-DEF3$duration <- DEF3a$DateCompleted - DEF3$CreatedDate
+DEF3$duration <- DEF3$DateCompleted - DEF3$CreatedDate
 #duration that is 3 std score below mean
 DEF3$duration.low <- scale(DEF3$duration) < -3
 #export short duration cases if there are cases
 DEF3a <- subset(DEF3, duration.low == TRUE, select = variables)
 if(nrow(DEF3a) > 0) {
-    write.xlsx(data.frame(DEF3a), 
-               file = "diagnostics/DEF-Short duration.xlsx", 
-               sheetName = as.character(Sys.Date() - 1), 
-               append = TRUE, row.names = FALSE)
+    w.excel(data.frame(DEF3a), 
+            file = "diagnostics/DEF-Short duration.xlsx")
 }else{
     NULL
 }
@@ -106,7 +137,7 @@ if(nrow(DEF3a) > 0) {
 capture.output(addmargins(table(DEF3$CreatedBy, DEF3$duration.low,
                                 dnn = c("Data Entry Personnel", 
                                         "Short duration"))),
-               file = "diagnostics/duration.txt")
+               file = "diagnostics/DEF-duration.txt")
 
 
 ######continuous variables outliers######
@@ -124,20 +155,13 @@ DEF4$out <- DEF4$mahal > qchisq(0.999, df = ncol(DEF4[(ncol(DEF4)-6):ncol(DEF4)]
 #tabulation of outlier cases by person
 capture.output(addmargins(table(DEF4$CreatedBy, DEF4$out, 
                                 dnn = c("Data Entry Personnel", "Outlier Case"))), 
-               file = "diagnostics/outliers by person.txt")
+               file = "diagnostics/DEF-outliers by person.txt")
 
 #check age limit for cases
 DEF4$agelimit <- DEF4$PtAge < 30
 
 #export results to diagnostics folder
-write.xlsx(data.frame(DEF4), file = "diagnostics/DEF-Outliers.xlsx", 
-           sheetName = as.character(Sys.Date() - 1), 
-           append = TRUE, row.names = FALSE)
-
-
-
-
-
+w.excel(data.frame(DEF4), file = "diagnostics/DEF-Outliers.xlsx")
 
 
 
