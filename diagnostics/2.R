@@ -17,27 +17,6 @@ for (sheet.name in sheets) {
              })
 }
 
-######Function to export excel with sheet overwrite feature######
-w.excel <- function(object, file) {
-    if(file.exists(file)) {
-        match <- sum(grepl(as.character(Sys.Date() - 1), 
-                           excel_sheets(file)))
-        if(match > 0) {
-            wb <- loadWorkbook(file)
-            removeSheet(wb, sheetName = as.character(Sys.Date() - 1))
-            newsheet <- createSheet(wb, sheetName = as.character(Sys.Date() - 1))
-            addDataFrame(object, newsheet, row.names = FALSE)
-            saveWorkbook(wb, file)
-        } else {
-            write.xlsx(object, file, 
-                       sheetName = as.character(Sys.Date() - 1), 
-                       append = TRUE, row.names = FALSE)
-        }
-    } else {
-        write.xlsx(object, file, sheetName = as.character(Sys.Date() - 1), 
-                   append = TRUE, row.names = FALSE)
-    }
-}
 
 ##Selected variables of interest##
 variables <- c('Syn_ID','VisitDate', 'Site_Name', 'PtAge','PtWeightValue','PtHeightValue',
@@ -146,16 +125,32 @@ DEF3$duration.low <- scale(DEF3$duration) < -3
 DEF3a <- subset(DEF3, duration.low == TRUE, select = variables)
 if(nrow(DEF3a) > 0) {
     w.excel(data.frame(DEF3a), 
-            file = "diagnostics/DEF-Short duration.xlsx")
+            file = "diagnostics/DEF-Duration outliers.xlsx")
+}else{
+    NULL
+}
+
+#export cases less than 5 min if there are cases
+DEF3b <- subset(DEF3, duration < 5)
+if(nrow(DEF3b) > 0) {
+    w.excel(data.frame(DEF3b), 
+            file = "diagnostics/DEF-Duration Under 5 min.xlsx")
 }else{
     NULL
 }
 
 #tabulate cases with short duration by data entry personnel 
-capture.output(addmargins(table(DEF3$CreatedBy, DEF3$duration.low,
+capture.output(cat("\n", "Short Duration Outliers", "\n"),
+               addmargins(table(DEF3$CreatedBy, DEF3$duration.low,
                                 dnn = c("Data Entry Personnel", 
                                         "Short duration"))),
                file = "diagnostics/DEF-duration.txt")
+#tabulate cases with duration <5 minits by data entry personnel
+capture.output(cat("\n", "Less than 5 minutes", "\n"),
+                   addmargins(table(DEF3$CreatedBy, DEF3$duration < 5,
+                                dnn = c("Data Entry Personnel", 
+                                        "< 5 minutes"))),
+               file = "diagnostics/DEF-duration.txt", append = TRUE)
 
 
 ######continuous variables outliers######
