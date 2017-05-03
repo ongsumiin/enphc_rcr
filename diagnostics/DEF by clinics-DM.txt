@@ -1,32 +1,40 @@
-                                 Diabetes
-                                    No  Yes  Sum
-  KLINIK KESIHATAN AYER BALOI       20   96  116
-  KLINIK KESIHATAN BALAKONG          7   49   56
-  KLINIK KESIHATAN BATU ANAM       136  130  266
-  KLINIK KESIHATAN BERANANG         73  131  204
-  KLINIK KESIHATAN CHAAH             0   13   13
-  KLINIK KESIHATAN PARIT SULONG    108  139  247
-  KLINIK KESIHATAN RENGIT          137  154  291
-  KLINIK KESIHATAN SENING            0   41   41
-  KLINIK KESIHATAN SRI GADING       68  134  202
-  KLINIK KESIHATAN SUNGAI BESAR     81  138  219
-  KLINIK KESIHATAN TELOK DATOK     127  131  258
-  KLINIK KESIHATAN TONGKANG PECAH    0   67   67
-  Sum                              757 1223 1980
+                                        Diabetes
+                                           No  Yes  Sum
+  KLINIK KESIHATAN AIR TAWAR 2             57    5   62
+  KLINIK KESIHATAN AYER BALOI              97  107  204
+  KLINIK KESIHATAN BALAKONG                58  107  165
+  KLINIK KESIHATAN BATU ANAM              136  130  266
+  KLINIK KESIHATAN BERANANG                73  131  204
+  KLINIK KESIHATAN BULUH KASAP             62   81  143
+  KLINIK KESIHATAN CHAAH                   61  159  220
+  KLINIK KESIHATAN PARIT SULONG           108  139  247
+  KLINIK KESIHATAN RENGIT                 137  154  291
+  KLINIK KESIHATAN SENING                  69   86  155
+  KLINIK KESIHATAN SRI GADING              68  134  202
+  KLINIK KESIHATAN SUNGAI BESAR            81  138  219
+  KLINIK KESIHATAN TANJUNG KARANG          44  169  213
+  KLINIK KESIHATAN TELOK DATOK            127  131  258
+  KLINIK KESIHATAN TELOK PANGLIMA GARANG   24   59   83
+  KLINIK KESIHATAN TONGKANG PECAH          95  122  217
+  Sum                                    1297 1852 3149
 
  By Month 
-                                 Diabetes
-                                   Apr  Mar  Feb  Jan  Dec  Nov  Sum
-  KLINIK KESIHATAN AYER BALOI       55   12   13   16    0    0   96
-  KLINIK KESIHATAN BALAKONG         24   14    0    0    0   11   49
-  KLINIK KESIHATAN BATU ANAM        60   13   15   15   14   13  130
-  KLINIK KESIHATAN BERANANG         56   15   13   15   17   15  131
-  KLINIK KESIHATAN CHAAH             0    2   11    0    0    0   13
-  KLINIK KESIHATAN PARIT SULONG     66   14   16   16   14   13  139
-  KLINIK KESIHATAN RENGIT           74   15   16   15   17   17  154
-  KLINIK KESIHATAN SENING            8   12   11    6    1    3   41
-  KLINIK KESIHATAN SRI GADING       62   14   15   15   16   12  134
-  KLINIK KESIHATAN SUNGAI BESAR     76   12   12   11   17   10  138
-  KLINIK KESIHATAN TELOK DATOK      73   15   10   12   11   10  131
-  KLINIK KESIHATAN TONGKANG PECAH   54   13    0    0    0    0   67
-  Sum                              608  151  132  121  107  104 1223
+                                        Diabetes
+                                          Apr  Mar  Feb  Jan  Dec  Nov  Sum
+  KLINIK KESIHATAN AIR TAWAR 2              5    0    0    0    0    0    5
+  KLINIK KESIHATAN AYER BALOI              56   12   13   16   10    0  107
+  KLINIK KESIHATAN BALAKONG                59   15   15    2    0   16  107
+  KLINIK KESIHATAN BATU ANAM               60   13   15   15   14   13  130
+  KLINIK KESIHATAN BERANANG                56   15   13   15   17   15  131
+  KLINIK KESIHATAN BULUH KASAP             29   10   10   11   10   11   81
+  KLINIK KESIHATAN CHAAH                   71   22   18   17   14   17  159
+  KLINIK KESIHATAN PARIT SULONG            66   14   16   16   14   13  139
+  KLINIK KESIHATAN RENGIT                  74   15   16   15   17   17  154
+  KLINIK KESIHATAN SENING                  40   12   11    6   10    7   86
+  KLINIK KESIHATAN SRI GADING              62   14   15   15   16   12  134
+  KLINIK KESIHATAN SUNGAI BESAR            76   12   12   11   17   10  138
+  KLINIK KESIHATAN TANJUNG KARANG          88   18   17   15   16   15  169
+  KLINIK KESIHATAN TELOK DATOK             73   15   10   12   11   10  131
+  KLINIK KESIHATAN TELOK PANGLIMA GARANG   43    8    0    0    0    8   59
+  KLINIK KESIHATAN TONGKANG PECAH          57   13   15   13   13   11  122
+  Sum                                     915  208  196  179  179  175 1852

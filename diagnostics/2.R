@@ -19,17 +19,22 @@ for (sheet.name in sheets) {
 
 ######Function to export excel with sheet overwrite feature######
 w.excel <- function(object, file) {
-    match <- sum(grepl(as.character(Sys.Date() - 1), 
-                       excel_sheets(file)))
-    if(match > 0) {
-        wb <- loadWorkbook(file)
-        removeSheet(wb, sheetName = as.character(Sys.Date() - 1))
-        newsheet <- createSheet(wb, sheetName = as.character(Sys.Date() - 1))
-        addDataFrame(object, newsheet, row.names = FALSE)
-        saveWorkbook(wb, file)
+    if(file.exists(file)) {
+        match <- sum(grepl(as.character(Sys.Date() - 1), 
+                           excel_sheets(file)))
+        if(match > 0) {
+            wb <- loadWorkbook(file)
+            removeSheet(wb, sheetName = as.character(Sys.Date() - 1))
+            newsheet <- createSheet(wb, sheetName = as.character(Sys.Date() - 1))
+            addDataFrame(object, newsheet, row.names = FALSE)
+            saveWorkbook(wb, file)
+        } else {
+            write.xlsx(object, file, 
+                       sheetName = as.character(Sys.Date() - 1), 
+                       append = TRUE, row.names = FALSE)
+        }
     } else {
-        write.xlsx(object, file, 
-                   sheetName = as.character(Sys.Date() - 1), 
+        write.xlsx(object, file, sheetName = as.character(Sys.Date() - 1), 
                    append = TRUE, row.names = FALSE)
     }
 }
@@ -118,6 +123,19 @@ capture.output(cat("\n", "By Month", "\n"),
                                 dnn = c(" ", "Hypertension"))), 
                file = "diagnostics/DEF by clinics-HPT.txt",
                append = TRUE)
+
+#######Duplicate ID Checks######
+#combine IC and other ID
+DEF3$PtID <- ifelse(str_count(DEF3$PtIC_New) == 14, DEF3$PtIC_New, 
+                    DEF3$PtOtherIDNum)
+#tabulate ID number
+ICdup <- data.frame(table(DEF3$PtID))
+ICdup <- ICdup[order(-ICdup$Freq), ]
+#export results
+w.excel(ICdup, file = "diagnostics/DEF-IC duplication.xlsx")
+
+a <- tapply(DEF3$PtID, DEF3$Site_Name, table)
+capture.output(a, file = "diagnostics/DEF-IC duplication by clinic.txt")
 
 ######Completion duration######
 #time to complete in min
