@@ -2,121 +2,131 @@
  Short Duration Outliers 
                                     Short duration
 Data Entry Personnel                 FALSE  Sum
-  Adlan                                 38   38
-  Afiq Firdaus                          23   23
+  Adlan                                 41   41
+  Afiq Firdaus                          30   30
   Aimi Nadiah Jamel                     27   27
-  Aishah                                86   86
-  Aisyah                                50   50
-  Aizat                                 50   50
-  Aminiril anisah                       79   79
-  Amira                                 62   62
-  Ang SH                                26   26
-  Annas                                 39   39
-  Aziani                                 3    3
-  Danial                                52   52
+  Aishah                               114  114
+  Aisyah                                52   52
+  Aizat                                 53   53
+  Aminiril anisah                       98   98
+  Amira                                 85   85
+  Ang SH                                28   28
+  Annas                                 46   46
+  Aziani                                 9    9
+  Danial                                79   79
+  Default Administrator                  1    1
   delina                                 2    2
   Delina                                51   51
+  DR ANG                                 1    1
   Dr Faeiz                               1    1
-  Dr Faeiz Syezri Adzmin bin Jaaffar    21   21
+  Dr Faeiz Syezri Adzmin bin Jaaffar    23   23
   Dr Masliyana                          21   21
-  Dr Richard                            55   55
-  Eliza                                 40   40
-  Fadzli                                25   25
-  Faeiz                                 11   11
-  Geetha Krishnan                       84   84
-  Hadi                                  50   50
-  Helmi                                 59   59
-  Hooi Fan                              72   72
+  Dr Richard                            89   89
+  Dr Saravanan                          10   10
+  Eliza                                 41   41
+  Fadzli                                30   30
+  Faeiz                                 12   12
+  Geetha Krishnan                      103  103
+  Hadi                                  66   66
+  Helmi                                 68   68
+  Hooi Fan                              90   90
   Hoong Ping                           113  113
   Hui Che                               21   21
-  Hui Yi                                37   37
-  Izzat                                 29   29
-  Izzati                                43   43
+  Hui Yi                                61   61
+  Izzat                                 67   67
+  Izzati                                82   82
   Jacelyn                              230  230
-  Jennifer Kaur                          6    6
-  Jia yi                               122  122
-  Jocelyn                               94   94
-  Ling Kuok Wei                         15   15
-  Mardhiah                              74   74
-  Michelle                              75   75
-  Munirah                               40   40
+  Jennifer Kaur                         31   31
+  Jia yi                               128  128
+  Jocelyn                              109  109
+  Ling Kuok Wei                         38   38
+  Mardhiah                              94   94
+  Michelle                              88   88
+  Munirah                               58   58
   Musfirah                              43   43
-  Nabilah Iffah                         75   75
-  Natrah                                49   49
-  Noor Amalina                          44   44
-  Noor hidayah                          40   40
-  Nurjannah                            111  111
-  Nursyuhaida                           49   49
-  Philip                                54   54
-  Pui Yee                               88   88
-  Siti Aminah                           38   38
-  Sree Durga                            94   94
-  Suhayl                                28   28
-  Syahirah                              70   70
-  Tan khai shin                         84   84
-  Thivashini                            77   77
+  Nabilah Iffah                        111  111
+  Natrah                                79   79
+  Noor Amalina                          64   64
+  Noor hidayah                          45   45
+  Nurjannah                            132  132
+  Nursyuhaida                           54   54
+  Philip                                63   63
+  Pui Yee                               95   95
+  Saravanan                             43   43
+  Siti Aminah                           51   51
+  Sree Durga                           104  104
+  Suhayl                                35   35
+  Sunita                                32   32
+  Syahirah                              81   81
+  Tan khai shin                         88   88
+  Thivashini                            92   92
   Yhyviyaa                              60   60
-  Yi Shin                              145  145
-  Yvonne                                74   74
-  Sum                                 3149 3149
+  Yi Shin                              170  170
+  Yvonne                                89   89
+  Sum                                 3922 3922
 
  Less than 5 minutes 
                                     < 5 minutes
 Data Entry Personnel                 FALSE TRUE  Sum
-  Adlan                                 38    0   38
-  Afiq Firdaus                          23    0   23
+  Adlan                                 41    0   41
+  Afiq Firdaus                          30    0   30
   Aimi Nadiah Jamel                     27    0   27
-  Aishah                                86    0   86
-  Aisyah                                50    0   50
-  Aizat                                 48    2   50
-  Aminiril anisah                       79    0   79
-  Amira                                 62    0   62
-  Ang SH                                26    0   26
-  Annas                                 39    0   39
-  Aziani                                 3    0    3
-  Danial                                52    0   52
+  Aishah                               114    0  114
+  Aisyah                                52    0   52
+  Aizat                                 51    2   53
+  Aminiril anisah                       98    0   98
+  Amira                                 85    0   85
+  Ang SH                                28    0   28
+  Annas                                 46    0   46
+  Aziani                                 9    0    9
+  Danial                                78    1   79
+  Default Administrator                  1    0    1
   delina                                 2    0    2
   Delina                                51    0   51
+  DR ANG                                 1    0    1
   Dr Faeiz                               1    0    1
-  Dr Faeiz Syezri Adzmin bin Jaaffar    21    0   21
+  Dr Faeiz Syezri Adzmin bin Jaaffar    23    0   23
   Dr Masliyana                          21    0   21
-  Dr Richard                            55    0   55
-  Eliza                                 40    0   40
-  Fadzli                                25    0   25
-  Faeiz                                 11    0   11
-  Geetha Krishnan                       84    0   84
-  Hadi                                  50    0   50
-  Helmi                                 59    0   59
-  Hooi Fan                              72    0   72
+  Dr Richard                            89    0   89
+  Dr Saravanan                          10    0   10
+  Eliza                                 41    0   41
+  Fadzli                                30    0   30
+  Faeiz                                 12    0   12
+  Geetha Krishnan                      103    0  103
+  Hadi                                  66    0   66
+  Helmi                                 68    0   68
+  Hooi Fan                              90    0   90
   Hoong Ping                           112    1  113
   Hui Che                               21    0   21
-  Hui Yi                                36    1   37
-  Izzat                                 29    0   29
-  Izzati                                43    0   43
+  Hui Yi                                60    1   61
+  Izzat                                 66    1   67
+  Izzati                                82    0   82
   Jacelyn                              202   28  230
-  Jennifer Kaur                          6    0    6
-  Jia yi                               122    0  122
-  Jocelyn                               94    0   94
-  Ling Kuok Wei                         15    0   15
-  Mardhiah                              74    0   74
-  Michelle                              75    0   75
-  Munirah                               40    0   40
+  Jennifer Kaur                         31    0   31
+  Jia yi                               128    0  128
+  Jocelyn                              109    0  109
+  Ling Kuok Wei                         38    0   38
+  Mardhiah                              94    0   94
+  Michelle                              88    0   88
+  Munirah                               58    0   58
   Musfirah                              43    0   43
-  Nabilah Iffah                         75    0   75
-  Natrah                                49    0   49
-  Noor Amalina                          44    0   44
-  Noor hidayah                          40    0   40
-  Nurjannah                            111    0  111
-  Nursyuhaida                           49    0   49
-  Philip                                54    0   54
-  Pui Yee                               88    0   88
-  Siti Aminah                           36    2   38
-  Sree Durga                            94    0   94
-  Suhayl                                28    0   28
-  Syahirah                              70    0   70
-  Tan khai shin                         82    2   84
-  Thivashini                            77    0   77
+  Nabilah Iffah                        111    0  111
+  Natrah                                79    0   79
+  Noor Amalina                          64    0   64
+  Noor hidayah                          45    0   45
+  Nurjannah                            132    0  132
+  Nursyuhaida                           54    0   54
+  Philip                                63    0   63
+  Pui Yee                               95    0   95
+  Saravanan                             43    0   43
+  Siti Aminah                           49    2   51
+  Sree Durga                           104    0  104
+  Suhayl                                35    0   35
+  Sunita                                32    0   32
+  Syahirah                              81    0   81
+  Tan khai shin                         86    2   88
+  Thivashini                            92    0   92
   Yhyviyaa                              60    0   60
-  Yi Shin                              144    1  145
-  Yvonne                                74    0   74
-  Sum                                 3112   37 3149
+  Yi Shin                              169    1  170
+  Yvonne                                89    0   89
+  Sum                                 3883   39 3922

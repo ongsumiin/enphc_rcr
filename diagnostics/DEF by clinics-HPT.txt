@@ -1,40 +1,50 @@
                                         Hypertension
                                            No  Yes  Sum
-  KLINIK KESIHATAN AIR TAWAR 2              0   62   62
-  KLINIK KESIHATAN AYER BALOI              22  182  204
-  KLINIK KESIHATAN BALAKONG                24  141  165
+  KK Demo One                               1    1    2
+  KLINIK KESIHATAN AIR TAWAR 2             14  123  137
+  KLINIK KESIHATAN AYER BALOI              29  220  249
+  KLINIK KESIHATAN BALAKONG                29  176  205
   KLINIK KESIHATAN BATU ANAM               33  233  266
+  KLINIK KESIHATAN BATU ARANG               8   96  104
   KLINIK KESIHATAN BERANANG                27  177  204
-  KLINIK KESIHATAN BULUH KASAP             50   93  143
+  KLINIK KESIHATAN BUKIT NAGA               1   21   22
+  KLINIK KESIHATAN BULUH KASAP             63  162  225
   KLINIK KESIHATAN CHAAH                   32  188  220
+  KLINIK KESIHATAN IJOK                    19  132  151
   KLINIK KESIHATAN PARIT SULONG            19  228  247
+  KLINIK KESIHATAN PONTIAN                  5   30   35
   KLINIK KESIHATAN RENGIT                  20  271  291
   KLINIK KESIHATAN SENING                  18  137  155
   KLINIK KESIHATAN SRI GADING              21  181  202
-  KLINIK KESIHATAN SUNGAI BESAR            23  196  219
-  KLINIK KESIHATAN TANJUNG KARANG          13  200  213
+  KLINIK KESIHATAN SUNGAI BESAR            24  205  229
+  KLINIK KESIHATAN TANJUNG KARANG          14  211  225
   KLINIK KESIHATAN TELOK DATOK             33  225  258
-  KLINIK KESIHATAN TELOK PANGLIMA GARANG   19   64   83
-  KLINIK KESIHATAN TONGKANG PECAH          12  205  217
-  Sum                                     366 2783 3149
+  KLINIK KESIHATAN TELOK PANGLIMA GARANG   33  199  232
+  KLINIK KESIHATAN TONGKANG PECAH          15  248  263
+  Sum                                     458 3464 3922
 
  By Month 
                                         Hypertension
                                           Apr  Mar  Feb  Jan  Dec  Nov  Sum
-  KLINIK KESIHATAN AIR TAWAR 2             62    0    0    0    0    0   62
-  KLINIK KESIHATAN AYER BALOI             106   16   18   25    7   10  182
-  KLINIK KESIHATAN BALAKONG                79   18   16   10    0   18  141
+  KK Demo One                               1    0    0    0    0    0    1
+  KLINIK KESIHATAN AIR TAWAR 2            115    0    0    0    0    8  123
+  KLINIK KESIHATAN AYER BALOI             124   17   18   25   18   18  220
+  KLINIK KESIHATAN BALAKONG                81   22   16   19   16   22  176
   KLINIK KESIHATAN BATU ANAM              113   24   24   22   25   25  233
+  KLINIK KESIHATAN BATU ARANG              96    0    0    0    0    0   96
   KLINIK KESIHATAN BERANANG                91   18   18   12   20   18  177
-  KLINIK KESIHATAN BULUH KASAP             20   14   19   15    5   20   93
+  KLINIK KESIHATAN BUKIT NAGA               0    0    0    0    4   17   21
+  KLINIK KESIHATAN BULUH KASAP             74   14   19   15   20   20  162
   KLINIK KESIHATAN CHAAH                   89   26   23   18   15   17  188
+  KLINIK KESIHATAN IJOK                    89   19   18    0    6    0  132
   KLINIK KESIHATAN PARIT SULONG           107   22   20   25   27   27  228
+  KLINIK KESIHATAN PONTIAN                 12    0    0    0    0   18   30
   KLINIK KESIHATAN RENGIT                 131   28   29   25   31   27  271
   KLINIK KESIHATAN SENING                  82   20   13    7    8    7  137
   KLINIK KESIHATAN SRI GADING              84   21   19   21   19   17  181
-  KLINIK KESIHATAN SUNGAI BESAR            95   20   21   21   19   20  196
-  KLINIK KESIHATAN TANJUNG KARANG         102   23   19   22   15   19  200
+  KLINIK KESIHATAN SUNGAI BESAR           104   20   21   21   19   20  205
+  KLINIK KESIHATAN TANJUNG KARANG         107   23   19   22   20   20  211
   KLINIK KESIHATAN TELOK DATOK            114   26   21   22   22   20  225
-  KLINIK KESIHATAN TELOK PANGLIMA GARANG   30   18    0    0    0   16   64
-  KLINIK KESIHATAN TONGKANG PECAH         108   23   27   22   15   10  205
-  Sum                                    1413  317  287  267  228  271 2783
+  KLINIK KESIHATAN TELOK PANGLIMA GARANG   96   23   22   20   20   18  199
+  KLINIK KESIHATAN TONGKANG PECAH         123   25   29   23   24   24  248
+  Sum                                    1833  348  329  297  314  343 3464
