@@ -5,6 +5,7 @@ helper.function <- function()
 
 ######Function to export excel with sheet overwrite feature######
 w.excel <- function(object, file) {
+    object <- as.data.frame(object)
     if(file.exists(file)) {
         match <- sum(grepl(as.character(Sys.Date() - 1), 
                            excel_sheets(file)))

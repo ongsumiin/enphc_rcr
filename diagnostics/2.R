@@ -105,7 +105,7 @@ capture.output(cat("\n", "By Month", "\n"),
 
 #######Duplicate ID Checks######
 #combine IC and other ID
-DEF3$PtID <- ifelse(str_count(DEF3$PtIC_New) == 14, DEF3$PtIC_New, 
+DEF3$PtID <- ifelse(str_count(DEF3$PtIC_New) == 14 & !is.na(DEF3$PtIC_New), DEF3$PtIC_New, 
                     DEF3$PtOtherIDNum)
 #tabulate ID number
 ICdup <- data.frame(table(DEF3$PtID))
@@ -113,8 +113,16 @@ ICdup <- ICdup[order(-ICdup$Freq), ]
 #export results
 w.excel(ICdup, file = "diagnostics/DEF-IC duplication.xlsx")
 
-a <- tapply(DEF3$PtID, DEF3$Site_Name, table)
-capture.output(a, file = "diagnostics/DEF-IC duplication by clinic.txt")
+#identify ID that repeated >2
+ICdup2 <- ICdup$Var1[ICdup$Freq > 2]
+#extract cases with ID repeated >2
+DEF3dup <- data.frame()
+for (i in ICdup2){
+    dup1 <- DEF3[DEF3$PtID == i, ]
+    DEF3dup <- rbind(DEF3dup, dup1)
+}
+#export cases with repetition >2
+w.excel(DEF3dup, file = "diagnostics/DEF-IC duplication cases.xlsx")
 
 ######Completion duration######
 #time to complete in min
